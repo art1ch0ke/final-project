@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Lato:wght@400;700&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+ 
+body {
+  font-family: "Inter Tight", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  
+  background: url(images/img.jpg);
+  padding-top: 100px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.container {
+  width: 800px;
+  min-height: 500px;
+  border: 10px solid white;
+  margin: 0 auto;
+  background: white;
+}
+
+header {
+  display: flex;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.title-block {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+  width: 80%;
+  height: 100%;
+  background: url(images/title_img.jpg) no-repeat center center / cover;
+  margin-right: 10px;
+}
+
+
+.title-block::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.4;
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+}
+
+.userpic {
+  display: flex;
+  width: 20%;
+  height: 100%;
+  background: url(images/profile.png) no-repeat center center / cover;
+}
+
+nav ul {
+  display: flex;
+  background:rgb(223, 219, 219);
+  margin: 10px 0;
+}
+
+nav li a {
+  display: flex;
+  padding: 20px;
+  text-decoration: none;
+  color: rgb(87, 82, 82);
+  font-weight: bold;
+  border-right: 2px solid rgb(209, 203, 203);
+  transition: background 0.3s ease;
+}
+
+nav li a:hover {
+  background: rgb(167, 163, 163);
+}
+
+.content-wrapper {
+  display: flex;
+}
+
+.content {
+  width: 70%;
+  padding: 20px;
+}
+.content p {
+  line-height: 20px;
+}
+
+#happy-choice {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  transition: transform 0.15s color 0.15s;
+}
+
+#happy-choice:hover {
+  transform: translateY(-1px);
+  color:rgb(87, 82, 82);
+}
+
+.sidebar {
+  width: 30%;
+  padding: 20px;
+}
+
+.skills li a {
+  display: inline-block;
+  padding: 10px 0;
+  text-decoration: none;
+  transition: transform .5s ease;
+  cursor: pointer;
+  color: #000;
+}
+
+.skills li a:hover {
+  transform: translateX(10px);
+}
+
+.sidebar ul {
+  margin-bottom: 10px;
+}
+
+
+/* .buttons-cites .ytube {
+  background-color: rgb(204, 0, 0);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-right: 12px;
+  width: 110px;
+  height: 36px;
+  border-radius: 2.5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buttons-cites .ytube:hover {
+  background:rgb(247, 36, 36);
+}
+
+.buttons-cites .ytube:active {
+  background:rgb(252, 90, 90);
+} */
+
+/* .buttons-cites .vk {
+  background: rgb(0, 119, 254);
+  margin-right: 12px;
+  color: white;
+  padding: 10px 16px;
+  border: 1px solid ;
+  width: 122px;
+  border-radius: 4px;
+  height: 38px;
+  cursor: pointer;
+  transition: background 0.3s ease,
+  color 1s;
+}
+
+.vk:hover {
+  background: white;
+  color:rgb(0, 119, 254);
+  border: 1px solid rgb(0, 119, 254);
+}
+ 
+.vk:active {
+  background: rgb(236, 227, 227);
+} */
+
+/* .buttons-cites .twitter {
+  background: rgb(29, 155, 240);
+  margin-right: 12px;
+  color: white;
+  padding: 10px 16px;
+  border: 1px solid;
+  width: 74px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 16px;
+  transition: background 0.3s ease,
+  box-shadow 0.15px;
+}
+.twitter:hover {
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3)
+}
+.twitter:active {
+  background:rgb(146, 203, 241);
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1);
+} */
+
+.contact-email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 55px;
+}
+
+#toggle-button {
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background:rgb(223, 219, 219);
+  color: rgb(87, 82, 82);
+  border: 1px solid rgb(87, 82, 82);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease, opacity 0.3s ease,
+  transform 0.15s ease-in-out;
+  transform-origin: center;
+}
+
+#toggle-button:hover {
+  background: rgb(167, 163, 163);
+  border: none;
+  transform: scale(1.2);
+}
+
+#toggle-button:active {
+  opacity: 0.7;
+}
+
+#contact-form button {
+  display: block;
+  margin: 10px auto;
+}
+
+#contact-form textarea {
+  background:rgb(223, 219, 219);
+  color: rgb(126, 122, 122);
+}
+
+#contact-form textarea:focus {
+  background: white;
+  color: black;
+}
+
+/* Footer */
+.footer {
+  background-color: rgb(1, 1, 34);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+.footer-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer-logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.footer-contact {
+  font-size: 1em;
+}
+.footer-contact p {
+  margin: 5px;
+}
+.footer-social a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+.footer-social {
+  display: flex;
+  margin: 15px;
+  gap: 5px;
+}
+.footer-copy {
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+.social-btn img {
+  width: 30px;
+  height: 30px;
+  background: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-btn:hover img {
+  transform: scale(1.2);
+  opacity: 0.8;
+} 
+
+.hidden {
+  display: none;
+}
+
+/* Для планшетов и экранов до 768px */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    border-width: 5px;
+  }
+
+  header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .title-block,
+  .userpic {
+    width: 100%;
+    height: 100px;
+    margin: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li a {
+    border-right: none;
+    border-bottom: 1px solid rgb(209, 203, 203);
+    justify-content: center;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .content,
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Для телефонов до 480px */
+@media (max-width: 480px) {
+  .title-block {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  nav li a {
+    padding: 15px;
+    font-size: 0.9em;
+  }
+
+  #toggle-button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  .footer-logo {
+    font-size: 1.2em;
+  }
+
+  .social-btn img {
+    width: 24px;
+    height: 24px;
+  }
+}

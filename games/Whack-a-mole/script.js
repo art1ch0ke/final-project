@@ -95,7 +95,7 @@ function spawnElement(type) {
         delete element.dataset.clicked; // Удаляем атрибут
         element.remove(); // Удаляем сам элемент
     }, 500);
-  }, Math.max(700, game.gameSpeed));
+  }, Math.max(600, game.gameSpeed));
 
   setTimeout(gettingFaster, game.gameSpeed);
 }
@@ -147,7 +147,7 @@ function gettingFaster() {
   timerDisplay.innerText = `Время: ${Math.floor(game.timer / 60)}:${(game.timer % 60).toString().padStart(2, "0")}`;
   spawnElement(Math.random() < 0.9 ? "mole" : "heart");
    // Уменьшаем скорость, но не даем ей упасть ниже 600 мс
-  game.gameSpeed = Math.max(700, game.gameSpeed - 50);
+  game.gameSpeed = Math.max(600, game.gameSpeed - 50);
   console.log("Новая скорость:", game.gameSpeed);
 }
 
@@ -157,7 +157,13 @@ function checkGameOver() {
     clearInterval(game.interval);
     gameOverScreen.classList.remove("hidden");
     gameContainer.classList.add("hidden");
-    finalTime.innerText = `Ты продержался ${game.timer} сек.`;
+    if (game.timer / 60 >= 1) {
+      finalTime.innerText = 
+      `Ты продержался ${Math.floor(game.timer / 60)} мин. ${(game.timer % 60)} сек.`;
+    }
+    else {
+      finalTime.innerText = `Ты продержался ${game.timer} сек.`;
+    }
     sounds.gameOver.play();
   }
 }

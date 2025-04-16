@@ -306,6 +306,9 @@ nav li a:hover {
 
 /* Для планшетов и экранов до 768px */
 @media (max-width: 768px) {
+body {
+  padding-top: 10px;
+}
   .container {
     width: 90%;
     border-width: 5px;

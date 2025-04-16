@@ -319,10 +319,16 @@ nav li a:hover {
   .title-block,
   .userpic {
     width: 100%;
-    height: 100px;
     margin: 0;
   }
 
+  .title-block {
+    height: 50px;
+  }
+
+  .userpic {
+    height: 100px;
+  }
   nav ul {
     flex-direction: column;
   }

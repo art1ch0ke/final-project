@@ -323,11 +323,11 @@ nav li a:hover {
   }
 
   .title-block {
-    height: 50px;
+    height: 100px;
   }
 
   .userpic {
-    height: 100px;
+    height: 200px;
   }
   nav ul {
     flex-direction: column;

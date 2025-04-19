@@ -76,6 +76,7 @@ function spawnElement(type) {
     element.dataset.clicked == "false") {
       element.dataset.clicked = "true";
       game.lives--;
+      element.classList.add("mole-hide");
       checkGameOver();
       livesDisplay.textContent = "❤️".repeat(game.lives); 
       livesDisplay.classList.add("blink");
@@ -85,17 +86,17 @@ function spawnElement(type) {
       }, 300);// даем пройти анимации мигания сердец
       
     }
-    if(type == "heart" &&
+    else if(type == "heart" &&
     element.dataset.clicked == "false") {
       element.dataset.clicked = "true";
       element.classList.add("heart-blink");
       sounds.missHeart.play();
     }
-    else element.classList.add("mole-hide");
-      setTimeout(() => {
-        delete element.dataset.clicked; // Удаляем атрибут
-        element.remove(); // Удаляем сам элемент
-    }, 500);
+
+    setTimeout(() => {
+      delete element.dataset.clicked; // Удаляем атрибут
+      element.remove(); // Удаляем сам элемент
+  }, 500);
   }, Math.max(game.minSpeed, game.gameSpeed));
 
   setTimeout(gettingFaster, game.gameSpeed);
@@ -155,7 +156,6 @@ function gettingFaster() {
 // Функция проверки конца игры
 function checkGameOver() {
   if (game.lives <= 0) {
-    clearInterval(game.interval);
     gameOverScreen.classList.remove("hidden");
     gameContainer.classList.add("hidden");
     if (game.timer / 60 >= 1) {

@@ -3,6 +3,7 @@ const game = {
   lives: 3,
   timer: 0,
   gameSpeed: 1700,
+  minSpeed: window.innerWidth <= 768 ? 400 : 700,
   board: 16
 };
 
@@ -95,7 +96,7 @@ function spawnElement(type) {
         delete element.dataset.clicked; // Удаляем атрибут
         element.remove(); // Удаляем сам элемент
     }, 500);
-  }, Math.max(600, game.gameSpeed));
+  }, Math.max(game.minSpeed, game.gameSpeed));
 
   setTimeout(gettingFaster, game.gameSpeed);
 }
@@ -147,7 +148,7 @@ function gettingFaster() {
   timerDisplay.innerText = `Время: ${Math.floor(game.timer / 60)}:${(game.timer % 60).toString().padStart(2, "0")}`;
   spawnElement(Math.random() < 0.9 ? "mole" : "heart");
    // Уменьшаем скорость, но не даем ей упасть ниже 600 мс
-  game.gameSpeed = Math.max(600, game.gameSpeed - 50);
+  game.gameSpeed = Math.max(game.minSpeed, game.gameSpeed - 50);
   console.log("Новая скорость:", game.gameSpeed);
 }
 

@@ -52,13 +52,13 @@ function Circle(x, y, radius) {
         if(this.x + this.radius > canvas.width ||
            this.x - this.radius < 0) {
             this.dir.dx = -this.dir.dx;
-            this.changeColor();
+            // this.changeColor();
         }
     
         if(this.y + this.radius > canvas.height ||
            this.y - this.radius < 0) {
             this.dir.dy = -this.dir.dy;
-            this.changeColor();
+            // this.changeColor();
         }
         this.x += this.dir.dx;
         this.y += this.dir.dy;

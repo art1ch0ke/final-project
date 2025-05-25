@@ -306,9 +306,10 @@ nav li a:hover {
 
 /* Для планшетов и экранов до 768px */
 @media (max-width: 768px) {
-body {
-  padding-top: 10px;
-}
+  body {
+    padding: 10px;
+    padding-top: 30px;
+  }
   .container {
     width: 90%;
     border-width: 5px;
@@ -350,6 +351,10 @@ body {
   .sidebar {
     width: 100%;
     padding: 10px;
+  }
+
+  .content p {
+    padding: 5px;
   }
 
   .footer-wrapper {

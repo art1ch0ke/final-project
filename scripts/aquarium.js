@@ -17,6 +17,8 @@ let animateID = null;
 let active = false;
 const colors = ['black', 'white'];
 const animaSpeed = window.innerWidth <= 768 ? 2 : 5;
+const minSize = window.innerWidth <= 768 ? 5 : 10;
+const maxSize = window.innerWidth <= 768 ? 15 : 30;
 
 function Circle(x, y, radius) {
     this.x = x ;
@@ -67,7 +69,7 @@ function animate() {
 function createCircles() {
     circlArray = [];
     for (let i = 0; i < 2000; i++) {
-        const radius = 10 + Math.random() * 30;
+        const radius = minSize + Math.random() * maxSize;
         const x = Math.random() * (canvas.width - radius * 2) + radius;
         const y = Math.random() * (canvas.height - radius * 2) + radius;
         circlArray.push(new Circle(x, y, radius));

@@ -18,7 +18,7 @@ let active = false;
 const colors = ['black', 'white'];
 const animaSpeed = window.innerWidth <= 768 ? 1.5 : 5;
 const minSize = window.innerWidth <= 768 ? 3 : 10;
-const maxSize = window.innerWidth <= 768 ? 15 : 30;
+const maxSize = window.innerWidth <= 768 ? 8 : 30;
 
 function Circle(x, y, radius) {
     this.x = x ;

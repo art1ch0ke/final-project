@@ -5,8 +5,8 @@ const overlay = document.getElementById('overlay');
 
 const size = 25;
 
-const rows = window.innerWidth <= 600 ? 20 : 50;
-const colls = window.innerWidth <= 600 ? 32 : 35;
+const rows = window.innerWidth <= 900 ? 20 : 50;
+const colls = window.innerWidth <= 900 ? 30 : 35;
 canvas.width = rows * size;
 canvas.height = colls * size;
 
@@ -160,6 +160,7 @@ document.getElementById('mobile-controls').addEventListener('click', function(e)
 });
 
 document.addEventListener('touchstart', function () {
+    if(gameRunning) return
     const event = new KeyboardEvent('keydown', { key: ' ', code: 'Space' });
     document.dispatchEvent(event);
-}, { once: true });
+});

@@ -9,6 +9,7 @@ canvas.height = colls * size;
 
 const c = canvas.getContext('2d');
 let gameRunning = false;
+let directionChanged = false;
 
 const snake = {
     body: [{
@@ -48,6 +49,7 @@ function resetGame() {
 }
 
 function draw() {
+    directionChanged = false;
     c.clearRect(0, 0, canvas.width, canvas.height);
         //draw our food
     c.fillStyle = 'red';
@@ -114,21 +116,27 @@ document.addEventListener('keydown', function(event) {
         startGame();
     }
     
+    if (directionChanged) return;
+
     if(event.key == 'ArrowUp' && dir.dy != 1){
         dir.dy = -1;
         dir.dx = 0;
+        directionChanged = true;
     }
     else if(event.key == 'ArrowDown' && dir.dy != -1) {
         dir.dx = 0;
         dir.dy = 1;
+        directionChanged = true;
     }
 
     else if(event.key == 'ArrowLeft' && dir.dx != 1) {
         dir.dx = -1;
         dir.dy = 0;
+        directionChanged = true;
     }
     else if(event.key == 'ArrowRight' && dir.dx != -1) {
         dir.dx = 1;
         dir.dy = 0;
+        directionChanged = true;
     }
 });

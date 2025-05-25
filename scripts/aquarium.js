@@ -19,7 +19,7 @@ const colors = ['black', 'white'];
 const animaSpeed = window.innerWidth <= 768 ? 1.5 : 5;
 const minSize = window.innerWidth <= 768 ? 3 : 10;
 const maxSize = window.innerWidth <= 768 ? 8 : 30;
-const count = window.innerWidth <= 768 ? 4000 : 2000;
+const count = window.innerWidth <= 768 ? 3000 : 2000;
 
 function Circle(x, y, radius) {
     this.x = x ;

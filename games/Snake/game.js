@@ -6,13 +6,14 @@ const overlay = document.getElementById('overlay');
 const size = 25;
 
 const rows = Math.floor((window.innerWidth - 50)/25);
-const colls = Math.floor((window.innerHeight - 50)/25);;
+const colls = Math.floor((window.innerHeight - 50)/25);
 canvas.width = rows * size;
 canvas.height = colls * size;
 
 const c = canvas.getContext('2d');
 let gameRunning = false;
 let directionChanged = false;
+const gameSpeed = window.innerWidth < 900 ? 200 : 100;
 
 const snake = {
     body: [{
@@ -36,7 +37,7 @@ const food = {
 function startGame() {
     resetGame();
     food.placeFood();
-    intervalID = setInterval(draw, 80);
+    intervalID = setInterval(draw, gameSpeed);
     overlay.classList.remove('show');
     gameRunning = true;
 }

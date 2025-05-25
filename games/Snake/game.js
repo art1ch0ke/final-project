@@ -3,7 +3,10 @@ const canvas = document.querySelector('canvas');
 const scoreEl = document.getElementById('score');
 const overlay = document.getElementById('overlay');
 
-const size = 25, rows = 30, colls = 20;
+const size = 25;
+
+const rows = window.innerWidth <= 600 ? 20 : 50;
+const colls = window.innerWidth <= 600 ? 32 : 35;
 canvas.width = rows * size;
 canvas.height = colls * size;
 
@@ -140,3 +143,23 @@ document.addEventListener('keydown', function(event) {
         directionChanged = true;
     }
 });
+
+document.getElementById('mobile-controls').addEventListener('click', function(e) {
+    if (!e.target.matches('button')) return;
+
+    const dir = e.target.dataset.dir;
+    const keyMap = {
+        up: 'ArrowUp',
+        down: 'ArrowDown',
+        left: 'ArrowLeft',
+        right: 'ArrowRight'
+    };
+
+    const event = new KeyboardEvent('keydown', { key: keyMap[dir], code: keyMap[dir] });
+    document.dispatchEvent(event);
+});
+
+document.addEventListener('touchstart', function () {
+    const event = new KeyboardEvent('keydown', { key: ' ', code: 'Space' });
+    document.dispatchEvent(event);
+}, { once: true });

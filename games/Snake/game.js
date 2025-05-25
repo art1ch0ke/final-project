@@ -5,8 +5,8 @@ const overlay = document.getElementById('overlay');
 
 const size = 25;
 
-const rows = window.innerWidth <= 900 ? 20 : 50;
-const colls = window.innerWidth <= 900 ? 30 : 35;
+const rows = window.innerWidth <= 900 ? 17 : 50;
+const colls = window.innerWidth <= 900 ? 23 : 35;
 canvas.width = rows * size;
 canvas.height = colls * size;
 

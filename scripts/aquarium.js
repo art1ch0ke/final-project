@@ -8,8 +8,15 @@
 8. draw и update
 9. Случайно задавать коорды и скорость
 10. Массив из кружков и цикл*/
+const toggleAqua = document.createElement('button');
+toggleAqua.textContent = '🌊';
+toggleAqua.id = 'toggle-aquarium';
+document.body.append(toggleAqua);
 
-const canvas = document.querySelector('canvas');
+const canvas = document.createElement('canvas');
+canvas.id = 'aquarium-canvas';
+document.body.append(canvas);
+
 canvas.width = window.innerWidth-10; 
 canvas.height = window.innerHeight-10;
 const c = canvas.getContext('2d');
@@ -96,7 +103,7 @@ function stopAquarium() {
 }
 
 
-document.getElementById('toggle-aquarium').addEventListener('click', () => {
+toggleAqua.addEventListener('click', () => {
     active = !active;
     active ? startAquarium() : stopAquarium();
 });

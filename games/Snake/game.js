@@ -13,7 +13,7 @@ canvas.height = colls * size;
 const c = canvas.getContext('2d');
 let gameRunning = false;
 let directionChanged = false;
-const gameSpeed = window.innerWidth < 900 ? 200 : 100;
+const gameSpeed = window.innerWidth < 900 ? 150 : 100;
 
 const snake = {
     body: [{

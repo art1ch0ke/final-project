@@ -64,7 +64,7 @@ header {
   display: flex;
   width: 20%;
   height: 100%;
-  background: url(../images/profile.png) no-repeat center center / cover;
+  background: url(../images/snoopy.jpg) no-repeat center center / cover;
 }
 
 nav ul {
@@ -308,7 +308,7 @@ nav li a:hover {
 @media (max-width: 768px) {
   body {
     padding: 10px;
-    padding-top: 30px;
+    padding-top: 50px;
   }
   .container {
     width: 90%;
@@ -331,7 +331,7 @@ nav li a:hover {
   }
 
   .userpic {
-    height: 250px;
+    height: 330px;
   }
   nav ul {
     flex-direction: column;
@@ -354,7 +354,7 @@ nav li a:hover {
   }
 
   .content p {
-    padding: 5px;
+    padding-right: 10px;
   }
 
   .footer-wrapper {

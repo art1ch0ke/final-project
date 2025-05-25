@@ -16,6 +16,7 @@ const c = canvas.getContext('2d');
 let animateID = null;
 let active = false;
 const colors = ['black', 'white'];
+const animaSpeed = window.innerWidth <= 768 ? 2 : 5;
 
 function Circle(x, y, radius) {
     this.x = x ;
@@ -23,8 +24,8 @@ function Circle(x, y, radius) {
     this.radius = radius;
     this.color = `${colors[Math.floor(Math.random()*2)]}`;
     this.dir = 
-    {   dx: (Math.random() - 0.5) * 5, 
-        dy:(Math.random() - 0.5) * 5
+    {   dx: (Math.random() - 0.5) * animaSpeed, 
+        dy:(Math.random() - 0.5) * animaSpeed
     };
 
     this.changeColor = function() {

@@ -181,8 +181,8 @@ canvas.addEventListener('touchend', e => {
         if(swipeX > 20) simulateKey('ArrowRight');
         else if (swipeX < -20) simulateKey('ArrowLeft');
     } else {
-        if (swipeY > 20) simulateKey('ArrowDown');
-        else if(swipeY < -20) simulateKey('ArrowUp');
+        if (swipeY > 20) simulateKey('ArrowUp');
+        else if(swipeY < -20) simulateKey('ArrowDown');
     }
 });
 

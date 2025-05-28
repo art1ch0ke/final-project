@@ -178,12 +178,13 @@ canvas.addEventListener('touchend', e => {
     const swipeY = touch.startY - endTouch.clientY;
 
     if (Math.abs(swipeX) > Math.abs(swipeY)) {
-        if(swipeX > 20) simulateKey('ArrowRight');
+        if (swipeX > 20) simulateKey('ArrowRight');
         else if (swipeX < -20) simulateKey('ArrowLeft');
     } else {
-        if (swipeY > 20) simulateKey('ArrowUp');
-        else if(swipeY < -20) simulateKey('ArrowDown');
+        if (swipeY > 20) simulateKey('ArrowDown');
+        else if (swipeY < -20) simulateKey('ArrowUp');
     }
+    
 });
 
 function simulateKey(key) {

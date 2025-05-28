@@ -15,6 +15,11 @@ let gameRunning = false;
 let directionChanged = false;
 const gameSpeed = window.innerWidth < 900 ? 150 : 100;
 
+const touch = {
+    startX: 0,
+    startY: 0
+};
+
 const snake = {
     body: [{
         x: Math.floor((rows/2) * size),
@@ -145,7 +150,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-document.getElementById('mobile-controls').addEventListener('click', function(e) {
+/*document.getElementById('mobile-controls').addEventListener('click', function(e) {
     if (!e.target.matches('button')) return;
 
     const dir = e.target.dataset.dir;
@@ -158,10 +163,36 @@ document.getElementById('mobile-controls').addEventListener('click', function(e)
 
     const event = new KeyboardEvent('keydown', { key: keyMap[dir], code: keyMap[dir] });
     document.dispatchEvent(event);
+});*/
+
+canvas.addEventListener('touchstart', e => {
+    const startTouch = e.touches[0];
+    touch.startX = startTouch.clientX;
+    touch.startY = startTouch.clientY;
+
 });
 
+canvas.addEventListener('touchend', e => {
+    const endTouch = e.changedTouches[0];
+    const swipeX = touch.startX - endTouch.clientX;
+    const swipeY = touch.startY - endTouch.clientY;
+
+    if (Math.abs(swipeX) > Math.abs(swipeY)) {
+        if (swipeX > 20) simulateKey('ArrowRight');
+        else if (swipeX < -20) simulateKey('ArrowLeft');
+    } else {
+        if (swipeY > 20) simulateKey('ArrowDown');
+        else if (swipeY < -20) simulateKey('ArrowUp');
+    }
+});
+
+function simulateKey(key) {
+    const eventKey = new KeyboardEvent('keydown', { key });
+    document.dispatchEvent(eventKey);
+}
+
 document.addEventListener('touchstart', function () {
-    if(gameRunning) return
-    const event = new KeyboardEvent('keydown', { key: ' ', code: 'Space' });
-    document.dispatchEvent(event);
+    if(gameRunning) return;
+    const eventStart = new KeyboardEvent('keydown', { key: ' ', code: 'Space' });
+    document.dispatchEvent(eventStart);
 });

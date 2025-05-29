@@ -1,4 +1,6 @@
 body {
+    margin: 0;
+    padding: 0; 
     font-family: sans-serif;
     padding: 30px;
     background: linear-gradient(135deg, #169bd5, #771797);

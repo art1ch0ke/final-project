@@ -57,6 +57,10 @@ input {
 }
 
 @media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;    
+    }
     .container button{
         display: block;
         margin: 10px auto;

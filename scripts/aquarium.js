@@ -97,7 +97,6 @@ function stopAquarium() {
     canvas.classList.add('hide');
     setTimeout(() => {
         cancelAnimationFrame(animateID);
-        canvas.classList.add('hide');
         canvas.style.display = 'none';
     }, 600);
 }

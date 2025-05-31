@@ -37,11 +37,11 @@
     to {opacity: 0}
 }
 
-#aquarium-canvas.show {
+.show {
     animation: showAnim 0.6s ease-in;
 }
 
-#aquarium-canvas.hide {
+.hide {
     animation: hideAnim 0.6s ease-out;
 }
 

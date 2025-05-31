@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background-color: #000;
+        }
+        .score-container {
+            position: fixed;
+            color: white;
+            font-size: 1.5em;
+            user-select: none;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .overlay {
+            background-color: #fff;
+            min-width: 400px;
+            height: 150px;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 35px;
+        }
+
+        .game-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 4em;
+        }
+
+        p {
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        button {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background-color: rgb(83, 207, 249);
+            border: none;
+            border-radius: 40px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+    </style>
+    <link rel="stylesheet" href="../../styles/canvas.css">
+</head>
+<body>
+    <div class="score-container"><span id="">Score: </span><span id="scoreEl">0</span></div>
+    <div class="game-modal">
+        <div class="overlay">
+            <h1 id="bigScore">0</h1>
+            <p>Points</p>
+            <button id="startBtn">Start game</button>
+        </div>
+    </div>
+    <canvas></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+    <script src="../../scripts/aquarium.js"></script>
+</body>
+</html>

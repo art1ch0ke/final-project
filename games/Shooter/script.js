@@ -30,8 +30,8 @@ const modal = document.querySelector('.game-modal');
 const bigScore = document.getElementById('bigScore');
 const c = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth - 6;
+canvas.height = window.innerHeight- 6;
 
 function Player(x, y, radius, color) {
     this.x = x;
@@ -73,7 +73,7 @@ function Enemy (x, y, radius, color, velocity, speed=2) {
     this.radius = radius;
     this.color = color;
     this.velocity = velocity;
-    this.speed = speed;
+    this.speed = window.innerWidth < 768 ? 1 : 2;
     this.draw = function() {
         c.beginPath();
         c.fillStyle = this.color;
@@ -205,10 +205,10 @@ function animate() {
             // projectile hits enemy
             if (distance - enemy.radius - projectile.radius < 1) {
                 
-                for(let i = 0; i < Math.random() * (enemy.radius * 3); i++) {
+                for(let i = 0; i < Math.random() * (enemy.radius * 4); i++) {
                     particles.push(new Particle(
                         projectile.x, projectile.y,
-                        0.5 + Math.random() * 3,
+                        1 + Math.random() * 4,
                         enemy.color, 
                         {x: Math.random() - 0.5, y: Math.random() - 0.5}
                         ));

@@ -34,14 +34,14 @@ const food = {
     x: undefined,
     y: undefined,
     placeFood: function() {
-        food.x = Math.floor(1 + Math.random() * (rows - 2)) * size;
-        food.y = Math.floor(1 + Math.random() * (colls - 2)) * size;
+        let valid = true;
+        while(valid) {
+            food.x = Math.floor(1 + Math.random() * (rows - 2)) * size;
+            food.y = Math.floor(1 + Math.random() * (colls - 2)) * size;
 
-        snake.body.forEach(seg=>{
-            if(food.x == seg.x && food.y == seg.y) {
-                food.placeFood();
-            }
-        });
+            valid = 
+            snake.body.some(seg => food.x == seg.x && food.y == seg.y);
+        }
     }
 };
 

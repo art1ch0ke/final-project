@@ -1,6 +1,7 @@
 let intervalID = null;
 const canvas = document.querySelector('canvas');
 const scoreEl = document.getElementById('score');
+const recordEl = document.getElementById('record');
 const overlay = document.getElementById('overlay');
 
 const size = 25;
@@ -13,6 +14,7 @@ canvas.height = colls * size;
 const c = canvas.getContext('2d');
 let gameRunning = false;
 let directionChanged = false;
+let highScore = +(localStorage.getItem('snakeRecord')) || 1;
 const gameSpeed = window.innerWidth < 900 ? 160 : 100;
 
 const touch = {
@@ -117,12 +119,18 @@ function collision(head, tail) {
 
 function updateScore() {
     scoreEl.textContent = `Score: ${snake.length}`;
+    if(snake.length > highScore && !gameRunning) {
+        highScore = snake.length;
+        localStorage.setItem('snakeRecord', highScore);
+    }
+    recordEl.textContent = `Record: ${highScore}`;    
 }
 
 function gameOver() {
     overlay.innerHTML = `GAME OVER<br><span class="small">Press Space</span>`;
     overlay.classList.add('show');
     gameRunning = false;
+    updateScore();
 }
 
 document.addEventListener('keydown', function(event) {

@@ -100,6 +100,9 @@
     font-weight: bold;
   }
 
+  #record {
+    visibility: hidden;
+  }
   /* Анимации появления крота и сердца */
   @keyframes mole-spawn {
     0% {

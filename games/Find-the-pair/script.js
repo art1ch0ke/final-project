@@ -6,12 +6,14 @@ window.addEventListener("DOMContentLoaded", () => {
     let firstCard = null;
     let secondCard = null;
     let isBoardLocked = true;
+    let highScore = localStorage.getItem('memoryGameRecord') || 0;
     let startTime;
     let timerInterval;
 
     const board = document.getElementById("game-board");
     const startButton = document.getElementById("start-btn");
     const timerDisplay = document.getElementById("timer");
+    const recordEl = document.getElementById("record");
 
     // 📌 Создаем модальное окно
     function createModal() {
@@ -68,6 +70,8 @@ window.addEventListener("DOMContentLoaded", () => {
         startButton.removeEventListener("click", startGame);
         startButton.addEventListener("click", () => location.reload());
         timerDisplay.style.visibility = "visible";
+        recordEl.textContent = `Record: ${highScore} sec.`;
+        recordEl.style.visibility = 'visible';
         isBoardLocked = true;
 
         document.querySelectorAll(".card").forEach((card, index) => {
@@ -149,6 +153,11 @@ window.addEventListener("DOMContentLoaded", () => {
         const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
         document.getElementById("win-message").textContent = `You finished in ${elapsedTime} seconds! 🎯`;
         document.getElementById("win-modal").style.display = "flex";
+        if(elapsedTime > highScore) {
+            highScore = elapsedTime;
+            localStorage.setItem('memoryGameRecord', highScore);
+        }
+        recordEl.textContent = `Record: ${highScore} sec.`;
     }
 
     // 📌 Запуск

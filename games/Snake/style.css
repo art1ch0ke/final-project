@@ -23,13 +23,13 @@
   }
 
   .scoreboard {
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 10px;
     left: 0;
     display: flex;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 0 80px;
     font-size: 24px;
     color: #0f0;
     font-family: 'Press Start 2P', monospace;

@@ -15,6 +15,7 @@ const c = canvas.getContext('2d');
 let gameRunning = false;
 let directionChanged = false;
 let highScore = +(localStorage.getItem('snakeRecord')) || 1;
+recordEl.textContent = `Record: ${highScore}`; 
 const gameSpeed = window.innerWidth < 900 ? 160 : 100;
 
 const touch = {

@@ -41,7 +41,7 @@ function checkGuess() {
 
         if(attempts < highScore) {
             highScore = attempts;
-            localStorage.setItem('gueassNumberGame', highScore);
+            localStorage.setItem('guessNumberGame', highScore);
             recordEl.textContent = `Record: ${highScore}`;
         }
     } else if (userGuess > answer) {

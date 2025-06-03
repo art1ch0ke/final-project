@@ -9,6 +9,7 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
@@ -16,17 +17,24 @@
             background-color: #000;
         }
         .score-container {
-            position: fixed;
             color: white;
             font-size: 1.5em;
             user-select: none;
             font-family: 'Press Start 2P', monospace;
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            pointer-events: none;
         }
 
         .overlay {
             background-color: #fff;
             min-width: 400px;
-            height: 150px;
+            min-height: 150px;
             padding: 50px;
             display: flex;
             justify-content: center;
@@ -77,7 +85,10 @@
     <link rel="stylesheet" href="../../styles/canvas.css">
 </head>
 <body>
-    <div class="score-container"><span>Score: </span><span id="scoreEl">0</span></div>
+    <div class="score-container">
+        <div><span>Score: </span><span id="scoreEl">0</span></div>
+        <div><span>Record: </span><span id="recordEl">0</span></div>
+    </div>
     <div class="game-modal">
         <div class="overlay">
             <h1 id="bigScore">0</h1>

@@ -20,11 +20,13 @@
 19. Альфа, c.save, c.resrore
 */
 
+let highScore = 0;
 let inervalId = null;
 let animationId = null;
 
 const canvas = document.querySelector('canvas');
 const scoreEl = document.querySelector('#scoreEl');
+const recordEl = document.getElementById('recordEl');
 const startBtn = document.getElementById('startBtn');
 const modal = document.querySelector('.game-modal');
 const bigScore = document.getElementById('bigScore');
@@ -32,6 +34,8 @@ const c = canvas.getContext('2d');
 
 canvas.width = window.innerWidth - 6;
 canvas.height = window.innerHeight- 6;
+highScore = localStorage.getItem('shooterRecord') || 0;
+recordEl.textContent = highScore;
 
 function Player(x, y, radius, color) {
     this.x = x;
@@ -126,6 +130,8 @@ function init() {
     particles = [];
     player.score = 0;
     scoreEl.textContent = player.score;
+    highScore = localStorage.getItem('shooterRecord') || 0;
+    recordEl.textContent = highScore;
     bigScore.textContent = player.score;
 }
 
@@ -189,10 +195,17 @@ function animate() {
         const distance = 
         Math.hypot(player.x - enemy.x, player.y - enemy.y);
         // enemy hits player
+        // game over
         if (distance - enemy.radius - player.radius < 1) {
             cancelAnimationFrame(animationId);
             clearInterval(inervalId);
             animationId = inervalId = null;
+            if(player.score > highScore) {
+                highScore = player.score;
+                localStorage.setItem('shooterRecord', highScore);
+            }
+            scoreEl.textContent = player.score;
+            recordEl.textContent = highScore;
             modal.style.display = 'flex';
             bigScore.textContent = player.score;
         }

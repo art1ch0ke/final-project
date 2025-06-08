@@ -1,0 +1,106 @@
+body {
+    margin: 0; padding: 0;
+    background: #0f0c29; /* темный градиент */
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    perspective: 1000;
+  }
+
+  .card {
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(145deg, #ffffffee, #d0d4f7cc);
+    border-radius: 20px;
+    box-shadow: 0 0 30px #7f8fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+    color: #444;
+    text-shadow:
+      0 0 10px #7f8fff,
+      0 0 20px #7f8fff,
+      0 0 30px #7f8fff,
+      0 0 40px #5566ff;
+    user-select: none;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;;
+  }
+
+  .rotate {
+    transform: rotateY(180deg);
+  }
+
+  .buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  button {
+    font-size: 50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 38px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(145deg, #5f9cff, #3a64f0);
+    box-shadow:
+      0 0 10px #3a64f0,
+      inset 0 0 8px #6ea3ff;
+    color: white;
+    transition: background 0.3s, box-shadow 0.3s;
+    user-select: none;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    box-shadow: none;
+  }
+
+  button.selected {
+    background: linear-gradient(145deg, #29ff87, #0fb85e);
+    box-shadow:
+      0 0 12px #00ff6a,
+      inset 0 0 12px #29ff87;
+  }
+
+  .scoreboard {
+    margin-top: 30px;
+    font-size: 24px;
+    text-align: center;
+    color: #aaf3aa;
+    text-shadow: 0 0 6px #44dd44;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee;
+    font-size: 28px;
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .modal button {
+    margin-top: 20px;
+    width: 150px;
+    font-size: 22px;
+    background: linear-gradient(145deg, #ff5050, #d63030);
+    box-shadow:
+      0 0 10px #d63030,
+      inset 0 0 8px #ff5050;
+  }

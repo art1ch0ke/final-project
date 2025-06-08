@@ -102,7 +102,7 @@ function playRound(playerChoice) {
     }
 
     updateScoreboard();
-  }, 170);
+  }, 160);
 
   // Еще через полсекунды поворачиваем обратно и убираем класс
   setTimeout(function() {
@@ -127,8 +127,8 @@ function playRound(playerChoice) {
         disableButtons(true);
         showModal(winner);
       }
-    }, 170);
-  }, 2000);
+    }, 160);
+  }, 3000);
 }
 
 buttons.forEach(button => {

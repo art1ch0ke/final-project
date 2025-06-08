@@ -1,5 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
-  // Глобальный объект игры
+window.addEventListener('DOMContentLoaded', function () {
   const game = {
     lives: 3,
     timerId: null,
@@ -7,10 +6,8 @@ window.addEventListener('DOMContentLoaded', function() {
     gameSpeed: 1700,
     board: 16,
     startTime: 0,
-    timer: 0
   };
 
-  // Получаем элементы DOM
   const startScreen = document.getElementById("start-screen"),
         gameContainer = document.getElementById("game-container"),
         gameOverScreen = document.getElementById("game-over"),
@@ -21,7 +18,6 @@ window.addEventListener('DOMContentLoaded', function() {
         startBtn = document.getElementById("start-btn"),
         restartBtn = document.getElementById("restart-btn");
 
-  // Звуки
   const sounds = {
     hit: document.getElementById("hitSound"),
     miss: document.getElementById("missSound"),
@@ -61,22 +57,25 @@ window.addEventListener('DOMContentLoaded', function() {
     cell.appendChild(element);
 
     element.addEventListener("click", () => {
-      if (element.dataset.clicked == "false")
+      if (element.dataset.clicked === "false") {
         handleClick(type, element);
+      }
     });
 
     setTimeout(() => {
-      if (cell.contains(element) && type == "mole" && element.dataset.clicked == "false") {
+      if (cell.contains(element) && type === "mole" && element.dataset.clicked === "false") {
         element.dataset.clicked = "true";
         game.lives--;
         checkGameOver();
         livesDisplay.textContent = "❤️".repeat(game.lives);
         livesDisplay.classList.add("blink");
         sounds.miss.play();
-        setTimeout(() => livesDisplay.classList.remove("blink"), 300);
+        setTimeout(() => {
+          livesDisplay.classList.remove("blink");
+        }, 300);
       }
 
-      if (type == "heart" && element.dataset.clicked == "false") {
+      if (type === "heart" && element.dataset.clicked === "false") {
         element.dataset.clicked = "true";
         element.classList.add("heart-blink");
         sounds.missHeart.play();
@@ -94,11 +93,10 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 
   function handleClick(type, element) {
-    if (element.dataset.clicked == "true") return;
+    if (element.dataset.clicked === "true") return;
 
     element.dataset.clicked = "true";
     element.classList.add(type === "mole" ? "mole-hit" : "heart-glow");
-
     setTimeout(() => {
       delete element.dataset.clicked;
       element.remove();
@@ -110,7 +108,9 @@ window.addEventListener('DOMContentLoaded', function() {
       game.lives++;
       livesDisplay.textContent = "❤️".repeat(game.lives);
       livesDisplay.classList.add("blink");
-      setTimeout(() => livesDisplay.classList.remove("blink"), 300);
+      setTimeout(() => {
+        livesDisplay.classList.remove("blink");
+      }, 300);
       sounds.hitHeart.play();
     }
   }
@@ -120,17 +120,18 @@ window.addEventListener('DOMContentLoaded', function() {
     gameContainer.classList.remove("hidden");
     game.lives = 3;
     game.startTime = Date.now();
-    game.timer = 0;
+    game.timerId = setInterval(updateTime, 1000);
     game.gameSpeed = 1700;
     livesDisplay.innerText = "❤️".repeat(game.lives);
-    game.timerId = setInterval(updateTime, 1000);
 
     setTimeout(gettingFaster, game.gameSpeed);
   }
 
   function updateTime() {
-    game.timer++;
-    timerDisplay.innerText = `Время: ${Math.floor(game.timer / 60)}:${(game.timer % 60).toString().padStart(2, "0")}`;
+    const elapsed = Math.floor((Date.now() - game.startTime) / 1000);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = (elapsed % 60).toString().padStart(2, "0");
+    timerDisplay.textContent = `Время: ${minutes}:${seconds}`;
   }
 
   function gettingFaster() {
@@ -144,10 +145,12 @@ window.addEventListener('DOMContentLoaded', function() {
       clearInterval(game.timerId);
       gameOverScreen.classList.remove("hidden");
       gameContainer.classList.add("hidden");
-      if (game.timer / 60 >= 1) {
-        finalTime.innerText = `Ты продержался ${Math.floor(game.timer / 60)} мин. ${game.timer % 60} сек.`;
+
+      const elapsed = Math.floor((Date.now() - game.startTime) / 1000);
+      if (elapsed >= 60) {
+        finalTime.textContent = `Ты продержался ${Math.floor(elapsed / 60)} мин. ${elapsed % 60} сек.`;
       } else {
-        finalTime.innerText = `Ты продержался ${game.timer} сек.`;
+        finalTime.textContent = `Ты продержался ${elapsed} сек.`;
       }
       sounds.gameOver.play();
     }
@@ -159,6 +162,7 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 
   restartBtn.addEventListener("click", () => {
-    location.reload();
+    gameOverScreen.classList.add("hidden");
+    startGame();
   });
 });

@@ -127,7 +127,7 @@ function playRound(playerChoice) {
         disableButtons(true);
         showModal(winner);
       }
-    }, 160);
+    }, 150);
   }, 3000);
 }
 

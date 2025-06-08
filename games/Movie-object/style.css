@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(20deg, #750404, black);
+
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Стили форм */
+.form-container, .sort-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Кнопки */
+
+button {
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff0000, #8b0000);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #f71212, #a30000);
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+.movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.movie-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    /* transition: transform 5s ease-in-out; */
+    animation: fadeIn 0.5s ease-in-out; 
+}
+
+.movie-item h3 {
+    margin: 0;
+}
+
+.movie-card p {
+    margin: 5px 0;
+}
+
+/* Анимация */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

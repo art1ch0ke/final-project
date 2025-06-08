@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библиотека фильмов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Библиотека фильмов</h1>
+        <div class="form-container">
+            <input type="text" id="title" placeholder="Название фильма/сериала">
+            <select id="type">
+                <option value="фильм">Фильм</option>
+                <option value="сериал">Сериал</option>
+            </select>
+            <input type="number" id="year" placeholder="Год выхода">
+            <input type="number" id="rating" placeholder="Рейтинг (0-10)" step="0.1">
+            <input type="number" id="duration" placeholder="Длительность (мин)">
+            <input type="number" id="episodes" placeholder="Количество серий" style="display: none;">
+            <button id="addMovie">Добавить</button>
+        </div>
+
+        <div class="sort-container">
+            <label for="sort">Сортировать по: </label>
+            <select id="sort">
+                <option value="year">Году выхода</option>
+                <option value="rating">Рейтингу</option>
+                <option value="duration">Длительности</option>
+            </select>
+            <button id="sortMovies">Сортировать</button>
+        </div>
+
+        <div id="movieList" class="movie-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

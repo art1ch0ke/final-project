@@ -6,7 +6,6 @@ const choices = ['✊', '✌️', '📄'];
 
 let playerScore = 0;
 let computerScore = 0;
-let isAnimating = false;
 
 function decideWinner(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
@@ -74,10 +73,6 @@ function showModal(winner) {
 }
 
 function playRound(playerChoice) {
-  if (isAnimating) {
-    return;
-  }
-  isAnimating = true;
   disableButtons(true);
   clearSelected();
 
@@ -112,11 +107,11 @@ function playRound(playerChoice) {
   // Еще через полсекунды поворачиваем обратно и убираем класс
   setTimeout(function() {
     card.classList.remove('rotate');
+    clearSelected();
 
     // После поворота показываем вопрос
     setTimeout(function() {
       card.textContent = '❓';
-      isAnimating = false;
       disableButtons(false);
 
       // Проверяем, есть ли победитель до трех очков
@@ -132,7 +127,7 @@ function playRound(playerChoice) {
         disableButtons(true);
         showModal(winner);
       }
-    }, 200);
+    }, 170);
   }, 2000);
 }
 

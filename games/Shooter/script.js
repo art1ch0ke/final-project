@@ -249,20 +249,29 @@ function animate() {
     });
 }
 
-window.addEventListener('click', function(e) {
-    const angle = Math.atan2(e.clientY - player.y, e.clientX - player.x);
+function shoot(x, y) {
+    const angle = Math.atan2(y - player.y, x - player.x);
+    const velocity = {
+      x: Math.cos(angle),
+      y: Math.sin(angle)
+    };
     projectiles.push(new Projectile(
-        canvas.width/2, 
-        canvas.height/2, 
-        5, 
-        '#fff', 
-        {
-            x: Math.cos(angle),
-            y: Math.sin(angle)
-        },
-        5
+      player.x,
+      player.y,
+      5,
+      '#fff',
+      velocity
     ));
-});
+  }
+  
+  window.addEventListener('click', (e)=> {
+    shoot(e.clientX, e.clientY);
+  });
+  
+  window.addEventListener('touchstart', (e)=>{
+    const touch = e.touches[0];
+    shoot(touch.clientX, touch.clientY);
+  });
 
 startBtn.addEventListener('click', ()=> {
     init();
